@@ -1,0 +1,40 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Aircraft implements Vehicle {
+  capacity: Float!
+  name: String!
+  pilots: [String!]!
+  range: Float!
+}
+
+type Bus implements Vehicle {
+  capacity: Float!
+  drivers: [String!]!
+  name: String!
+  range: Float!
+}
+
+type Car implements Vehicle {
+  capacity: Float!
+  name: String!
+  range: Float!
+  rentingCompany: String!
+}
+
+type Query {
+  getAllTransportLocation: [TransportLocation!]!
+}
+
+type TransportLocation {
+  availableVehicles: [Vehicle!]!
+  city: String!
+  name: String!
+}
+
+interface Vehicle {
+  capacity: Float!
+  name: String!
+  range: Float!
+}
