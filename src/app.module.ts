@@ -7,11 +7,21 @@ import { TransportLocationModule } from './transport-location/transport-location
 
 @Module({
   imports: [
-    GraphQLModule.forRoot({
-      playground: true,
-      debug: true,
-      autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
-      sortSchema: true,
+    GraphQLModule.forRootAsync({
+      useFactory: () => {
+        return {
+          introspection: true,
+          playground: {
+            endpoint:
+              process.env.IS_NOT_SLS === 'true'
+                ? '/graphql'
+                : `/${process.env.STAGE}/graphql`,
+          },
+          debug: true,
+          autoSchemaFile: true,
+          sortSchema: true,
+        };
+      },
     }),
     TransportLocationModule,
   ],

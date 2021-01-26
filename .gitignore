@@ -4,6 +4,7 @@
 
 /.aws/credentials
 /.build
+/.serverless
 # Logs
 logs
 *.log
