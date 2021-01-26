@@ -3,7 +3,7 @@
 /node_modules
 
 /.aws/credentials
-
+/.build
 # Logs
 logs
 *.log
