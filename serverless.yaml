@@ -3,7 +3,12 @@ service:
 
 plugins:
   - serverless-plugin-typescript
+  - serverless-plugin-optimize
   - serverless-offline
+
+custom:
+  serverless-offline:
+    allowCache: true 
 
 provider:
   name: aws
